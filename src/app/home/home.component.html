@@ -1,0 +1,17 @@
+<a routerLink="/addTodo">Add Todo</a>
+<div>
+  <table border="1" width="100%">
+    <thead>
+        <tr>
+          <td>Id</td>
+          <td>Name</td>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todoList">
+        <td>{{todo.id}}</td>
+        <td>{{todo.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
