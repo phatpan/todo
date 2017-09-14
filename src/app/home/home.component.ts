@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../service/todo-service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,25 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  todoList= [];
-  constructor() { }
-
+  todoList: any=[];
+  constructor(private todoService: TodoService) { }
+  
   ngOnInit() {
-    this.todoList = [
-      {
-        "id": "111",
-        "name": "AAAA"
-      },
-      {
-        "id": "222",
-        "name": "BBBB"
-      },
-      {
-        "id": "333",
-        "name": "NNN"
-      }
-    ];
+   this.todoList = this.todoService.getTodoList();
   }
 
 }

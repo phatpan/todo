@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { TodoService } from './service/todo-service.service';
 
 const route: Routes =[
    { path: "addTodo", component:  AddTodoComponent},
@@ -25,7 +26,7 @@ const route: Routes =[
     RouterModule.forRoot(route),
     FormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

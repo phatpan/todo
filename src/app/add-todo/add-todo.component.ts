@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
+import { TodoService } from '../service/todo-service.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-todo',
@@ -8,12 +10,13 @@ import { NgForm } from '@angular/forms'
 })
 export class AddTodoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todoService: TodoService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(data: NgForm){
-    console.log(data.value);
+    this.todoService.setTodoList(data.value);
+    this.router.navigate(["/"]);
   }
 }
